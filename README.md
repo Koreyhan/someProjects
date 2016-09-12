@@ -14,3 +14,5 @@
 请用微信扫描下面的二维码观看效果：
 
 ![二维码](http://oamfqhi9c.bkt.clouddn.com/blog_201608_ucaiChallenge.png)
+
+#### 7.[加载动画](https://htmlpreview.github.io/?https://github.com/Koreyhan/someProjects/blob/master/006.ucaiChallenge/index.html)
