@@ -1,0 +1,92 @@
+/* Reset CSS */
+html, body, div, span, applet, object, iframe, h1, h2, h3, 
+h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, 
+big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, 
+small, strike, strong, sub, sup, tt, var, dl, dt, dd, ol, ul, li, 
+fieldset, form, label, legend, table, caption, tbody, tfoot, 
+thead, tr, th, td { 
+    margin: 0; 
+    padding: 0; 
+    border: 0; 
+    outline: 0; 
+    font-weight: inherit; 
+    font-style: inherit; 
+    font-size: 100%; 
+    font-family: "Helvetica Neue",Helvetica,Arial,"Microsoft Yahei","Hiragino Sans GB","Heiti SC","WenQuanYi Micro Hei",sans-serif; 
+    vertical-align: baseline; 
+} 
+:focus { 
+    outline: 0; 
+} 
+table { 
+    border-collapse: separate; 
+    border-spacing: 0; 
+} 
+caption, th, td { 
+    text-align: left; 
+    font-weight: normal; 
+} 
+a img, iframe { 
+    border: none; 
+} 
+ol, ul { 
+    list-style: none; 
+} 
+input, textarea, select, button { 
+    font-size: 100%; 
+    font-family: inherit; 
+} 
+select { 
+    margin: inherit; 
+} 
+/* Fixes incorrect placement of numbers in ol’s in IE6/7 */ 
+ol { margin-left:2em; } 
+/* == clearfix == */ 
+.clearfix:after { 
+    content: “.”; 
+    display: block; 
+    height: 0; 
+    clear: both; 
+    visibility: hidden; 
+} 
+.clearfix {display: inline-block;} 
+* html .clearfix {height: 1%;} 
+
+/* CSS begin */
+body {
+    font-size: 14px;
+    background-color: black;
+}
+.typingEffect {
+    margin-top: 200px;
+    text-align: center;
+    color: #fff;
+    font-size: 24px;
+    font-weight: bold;
+}
+.typingEffect .typingText {
+    display: inline-block;
+}
+.typingEffect .typingCursor {
+    display: inline;
+    font-weight: normal;
+    animation: flashing 700ms linear infinite;
+    -webkit-animation: flashing 700ms linear infinite;
+    -moz-animation: flashing 700ms linear infinite;
+}
+
+@keyframes flashing
+{
+from { opacity: 1;}
+to { opacity: 0;}
+}
+@-webkit-keyframes flashing
+{
+from { opacity: 1;}
+to { opacity: 0;}
+}
+@-moz-keyframes flashing
+{
+from { opacity: 1;}
+to { opacity: 0;}
+}

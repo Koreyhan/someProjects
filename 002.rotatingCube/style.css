@@ -1,0 +1,179 @@
+/* Reset CSS */
+html, body, div, span, applet, object, iframe, h1, h2, h3, 
+h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, 
+big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, 
+small, strike, strong, sub, sup, tt, var, dl, dt, dd, ol, ul, li, 
+fieldset, form, label, legend, table, caption, tbody, tfoot, 
+thead, tr, th, td { 
+    margin: 0; 
+    padding: 0; 
+    border: 0; 
+    outline: 0; 
+    font-weight: inherit; 
+    font-style: inherit; 
+    font-size: 100%; 
+    font-family: "Helvetica Neue",Helvetica,Arial,"Microsoft Yahei","Hiragino Sans GB","Heiti SC","WenQuanYi Micro Hei",sans-serif; 
+    vertical-align: baseline; 
+} 
+:focus { 
+    outline: 0; 
+} 
+table { 
+    border-collapse: separate; 
+    border-spacing: 0; 
+} 
+caption, th, td { 
+    text-align: left; 
+    font-weight: normal; 
+} 
+a img, iframe { 
+    border: none; 
+} 
+ol, ul { 
+    list-style: none; 
+} 
+input, textarea, select, button { 
+    font-size: 100%; 
+    font-family: inherit; 
+} 
+select { 
+    margin: inherit; 
+} 
+/* Fixes incorrect placement of numbers in ol’s in IE6/7 */ 
+ol { margin-left:2em; } 
+/* == clearfix == */ 
+.clearfix:after { 
+    content: “.”; 
+    display: block; 
+    height: 0; 
+    clear: both; 
+    visibility: hidden; 
+} 
+.clearfix {display: inline-block;} 
+* html .clearfix {height: 1%;} 
+
+/* CSS begin */
+body {
+    font-size: 14px;
+    background-image: radial-gradient(circle,#0e3533,#092423,#000);
+}
+h1 {
+    margin-top: 80px;
+    margin-bottom: 170px;
+    text-align: center;
+    color: #29dbb2;
+    font-size: 24px;
+    font-weight: bold;
+}
+.rotatingCube {
+    -webkit-perspective: 800;
+    perspective: 800;
+    -webkit-perspective-origin: 50% 50%;
+    perspective-origin: 50% 50%;
+}
+.rotatingCube .cube {
+    position: relative;
+    margin: 0 auto;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    -webkit-transform-style: preserve-3d;
+    transition: all 4s linear;
+}
+.rotatingCube .cube div {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50px;
+    height: 50px;
+    line-height: 160px;
+    font-size: 20px;
+    color: #fff;
+    border: 1px solid #20c39e;
+    background-color: #29dbb2;
+    -webkit-transform-origin: center center;
+    transform-origin: center center;
+}
+.rotatingCube .cube div.wrap {
+    width: 160px;
+    height: 160px;
+    margin-left: -55px;
+    margin-top: -55px;
+    background-color: rgba(16,222,178,0.2);
+    transition: all 1s;
+}
+
+.rotatingCube .face1 {
+    -webkit-transform: translateZ(25px);
+    transform: translateZ(25px);
+}
+.rotatingCube .face2 {
+    -webkit-transform: rotateX(90deg) translateZ(25px);
+    transform: rotateX(90deg) translateZ(25px);
+}
+.rotatingCube .face3 {
+    -webkit-transform: rotateY(90deg) translateZ(25px);
+    transform: rotateY(90deg) translateZ(25px);
+}
+.rotatingCube .face4 {
+    -webkit-transform: rotateX(-90deg) translateZ(25px);
+    transform: rotateX(-90deg) translateZ(25px);
+}
+.rotatingCube .face5 {
+    -webkit-transform: rotateY(-90deg) translateZ(25px);
+    transform: rotateY(-90deg) translateZ(25px);
+}
+.rotatingCube .face6 {
+    -webkit-transform: rotateX(180deg) translateZ(25px);
+    transform: rotateX(180deg) translateZ(25px);
+}
+.rotatingCube .face7 {
+    -webkit-transform: translateZ(80px);
+    transform: translateZ(80px);
+}
+.rotatingCube .face8 {
+    -webkit-transform: rotateX(90deg) translateZ(80px);
+    transform: rotateX(90deg) translateZ(80px);
+}
+.rotatingCube .face9 {
+    -webkit-transform: rotateY(90deg) translateZ(80px);
+    transform: rotateY(90deg) translateZ(80px);
+}
+.rotatingCube .face10 {
+    -webkit-transform: rotateX(-90deg) translateZ(80px);
+    transform: rotateX(-90deg) translateZ(80px);
+}
+.rotatingCube .face11 {
+    -webkit-transform: rotateY(-90deg) translateZ(80px);
+    transform: rotateY(-90deg) translateZ(80px);
+}
+.rotatingCube .face12 {
+    -webkit-transform: rotateX(180deg) translateZ(80px);
+    transform: rotateX(180deg) translateZ(80px);
+}
+
+/* hover特效 */
+.rotatingCube:hover .cube .face7 {
+    -webkit-transform: translateZ(150px);
+    transform: translateZ(150px);
+}
+.rotatingCube:hover .cube .face8 {
+    -webkit-transform: rotateX(90deg) translateZ(150px);
+    transform: rotateX(90deg) translateZ(150px);
+}
+.rotatingCube:hover .cube .face9 {
+    -webkit-transform: rotateY(90deg) translateZ(150px);
+    transform: rotateY(90deg) translateZ(150px);
+}
+.rotatingCube:hover .cube .face10 {
+    -webkit-transform: rotateX(-90deg) translateZ(150px);
+    transform: rotateX(-90deg) translateZ(150px);
+}
+.rotatingCube:hover .cube .face11 {
+    -webkit-transform: rotateY(-90deg) translateZ(150px);
+    transform: rotateY(-90deg) translateZ(150px);
+}
+.rotatingCube:hover .cube .face12 {
+    -webkit-transform: rotateX(180deg) translateZ(150px);
+    transform: rotateX(180deg) translateZ(150px);
+}

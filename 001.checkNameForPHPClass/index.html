@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>CheckName</title>
+	<meta charset="utf-8" />
+	<link rel="stylesheet" type="text/css" href="css.css">
+	<script type="text/javascript" src="jquery-1.12.2.min.js" /></script>
+</head>
+<body>
+	<div class="checkName">
+		<h2 class="title">PHP精英班点名系统</h2>
+		<div class="name">点击按钮开始</div>
+		<div class="start"><a class="startCheckName" href="javascript:void(0)">开始点名</a></div>
+	</div>
+	
+	<!-- JS代码控制区域 -->
+	<script type="text/javascript">
+		$(function(){
+			// checkNmae 匿名函数
+			(function(){
+				// 在这里用 names数组 定义了班级人员的清单
+				var names = ['赵建斌','银海腾','胡汉志','张辉','刘蓉意','龙鑫','王鑫','韩鹏鹏','彭诗文','李帅','李长超','张鹏','史晋强','周波','王世攀','邹攀','马生龙','张凯','卢嘉旭','周海洋','张小飞'];
+				// math();
+				var int = '';
+				var flag = 1;
+				$('.startCheckName').click(
+					function(){
+						if(flag){
+							int = setInterval(math,30);
+						 	$(this).html('结束点名');
+						 	flag--;
+						}else{
+							clearInterval(int);
+						 	$(this).html('开始点名');
+						 	flag++;
+						}
+					}
+				);
+				function math(){
+					var random = parseInt(Math.random() * names.length);
+					$('.name').html(names[random]);
+				}
+			})()
+			
+		})
+</script>
+</body>
+</html>

@@ -1,0 +1,84 @@
+/* css reset */
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,button,textarea,p,blockquote,th,td { margin:0; padding:0; font-family: "微软雅黑";}
+body { background:#fff; color:#555; font-size:14px; font-family: Verdana, Arial, Helvetica, sans-serif; }
+td,th,caption { font-size:14px; }
+h1, h2, h3, h4, h5, h6 { font-weight:normal; font-size:100%; }
+address, caption, cite, code, dfn, em, strong, th, var { font-style:normal; font-weight:normal;}
+a { color:#555; text-decoration:none; }
+a:hover { text-decoration:underline; }
+img { border:none; }
+ol,ul,li { list-style:none; }
+input, textarea, select, button { font:14px Verdana,Helvetica,Arial,sans-serif; }
+table { border-collapse:collapse; }
+html {overflow-y: scroll;} 
+/* css common */
+.clearfix:after {content: "."; display: block; height:0; clear:both; visibility: hidden;}
+.clearfix { *zoom:1; }
+
+/* CSS begin */
+body {
+	background: #2d3e50;
+}
+.checkName {
+	width: 640px;
+	height: 370px;
+	position: absolute;
+	top:50%;
+	left:50%;
+	margin-left:-320px;
+	margin-top: -180px;
+	background: #ecf0f1;
+	-moz-border-radius: 5px;  /* 老的 Firefox */
+	border-radius: 5px; 
+
+	-moz-box-shadow: 0 2px 8px #17283a;  /* 老的 Firefox */
+	box-shadow: 0 2px 8px #17283a;
+	text-align: center;
+}
+
+.checkName .title {
+	font-size: 30px;
+	color: #e34235;
+	font-weight: bold;
+	margin-top: 70px;
+}
+.checkName .name {
+	width: 346px;
+	height: 86px;
+	margin: 44px auto;
+	line-height: 86px;
+	background-color: #f1f2f3;
+	border: 1px solid #ccc;
+	-moz-border-radius: 6px;
+	border-radius: 6px; 
+
+	-moz-box-shadow: 0 0px 5px #ddd inset;
+	box-shadow: 0 0px 5px #ddd inset;
+	font-size: 36px;
+	font-weight: bold;
+	color: #b5b5b5;
+}
+.start a{
+	transition:all 0.2s linear;
+	display: block;
+	width: 130px;
+	height: 36px;
+	margin: 0 auto;
+	line-height: 36px;
+	font-size: 16px;
+	color: #ecf0f1;
+	font-weight: bold;
+	background: -webkit-linear-gradient(#e95547,#df392e) ; /* Safari 5.1 - 6.0 */
+	background: -o-linear-gradient(#e95547,#df392e); /* Opera 11.1 - 12.0 */
+	background: -moz-linear-gradient(#e95547,#df392e); /* Firefox 3.6 - 15 */
+	background: linear-gradient(#e95547,#df392e); /* 标准的语法 */
+	
+	-moz-border-radius: 18px; 
+	border-radius: 18px; 
+}
+
+.start a:hover {
+	text-decoration: none;
+	-moz-box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+	box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
