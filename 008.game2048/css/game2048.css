@@ -21,44 +21,44 @@ a:hover,a:active,a:focus{ text-decoration:none;} /* 取消a标签点击后的虚
 -----------------------*/
 /* header */
 .header {
-	width: 500px;
+	width: 6rem;
 	margin: 0 auto;
 }
 .header .title,
 .header .newGame,
 .header .score {
 	float: left;
-	height: 80px;
-	margin: 15px auto 15px;
+	height: 1rem;
+	margin: 0.5rem auto 0.15rem;
 	-webkit-border-radius: 10px;
 	-moz-border-radius: 10px;
 	border-radius: 10px;
 	text-align: center;
 	color: #fff;
-	line-height: 80px;
+	line-height: 1rem;
 	
 }
 .header .title {
-	width: 200px;
+	width: 2.2rem;
 	background-color: #01abce;
 	font-size: 40px;
 	font-weight: 800;
 }
 .header .newGame {
-	width: 150px;
-	margin: 15px 20px 15px;
+	width: 1.8rem;
+	margin: 0.5rem 0.25rem 0.15rem;
 	background-color: #fc8c5e;
 	font-size: 20px;
 	font-weight: 800;
 }
 .header .score {
-	height: 65px;
-	padding-top: 15px;
-	width: 110px;
+	height: 0.8rem;
+	padding-top: 0.2rem;
+	width: 1.5rem;
 	background-color: #d3d3d3;
 	font-size: 16px;
 	font-weight: 200;
-	line-height: 26px;
+	line-height: 0.3rem;
 }
 .header .score .scoreNum {
 	font-size: 22px;
@@ -68,8 +68,8 @@ a:hover,a:active,a:focus{ text-decoration:none;} /* 取消a标签点击后的虚
 /* 2048main */
 .container {
 	position: relative;
-	width: 500px;
-	height: 500px;
+	width: 6rem;
+	height: 6rem;
 	margin: 0 auto;
 	background-color: #bfbfbf;
 	-webkit-border-radius: 15px;
@@ -78,8 +78,8 @@ a:hover,a:active,a:focus{ text-decoration:none;} /* 取消a标签点击后的虚
 }
 .container .backGrid {
 	position: absolute;
-	width: 100px;
-	height: 100px;
+	width: 1.2rem;
+	height: 1.2rem;
 	background-color: #d3d3d3;
 	-webkit-border-radius: 10px;
 	-moz-border-radius: 10px;
@@ -87,13 +87,13 @@ a:hover,a:active,a:focus{ text-decoration:none;} /* 取消a标签点击后的虚
 }
 .container .frontBlock {
 	position: absolute;
-	width: 100px;
-	height: 100px;
+	width: 1.2rem;
+	height: 1.2rem;
 	-webkit-border-radius: 10px;
 	-moz-border-radius: 10px;
 	border-radius: 10px;
 	font-size: 56px;
-	line-height: 100px;
+	line-height: 1.2rem;
 	text-align: center;
 	font-weight: bold;
 	transform: translate(-50%,-50%);

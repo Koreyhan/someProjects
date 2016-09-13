@@ -1,6 +1,5 @@
 // 存放一些基本的过程函数
 
-
 // 初始化gridMoved为false
 function gridMovedDefault(){
 	for(i=0; i<4; i++){
@@ -13,10 +12,10 @@ function gridMovedDefault(){
 
 // 获取二位数组 i，j 的相应位置
 function getPositionX(i,j){
-	return 20 + 120*j;
+	return 0.24 + 1.44*j;
 }
 function getPositionY(i,j){
-	return 20 + 120*i;
+	return 0.24 + 1.44*i;
 }
 
 // 生成一个0到x随机数
@@ -100,8 +99,8 @@ function newBlockShow(i,j){
 		'color': getColor(grid[i][j])
 	})
 	.animate({
-		'width': 100,
-		'height': 100
+		'width': '1.2rem',
+		'height': '1.2rem'
 	},150)
 }
 
@@ -109,15 +108,15 @@ function newBlockShow(i,j){
 function moveXAnimation(i,j,i,k){
 	$('.container .frontBlockGroup .frontBlock-' + i + '-' + j)
 	.animate({
-		'top': getPositionY(i,k) + 50,
-		'left': getPositionX(i,k) + 50
+		'top': getPositionY(i,k) + 0.6 + 'rem',
+		'left': getPositionX(i,k) + 0.6 + 'rem'
 	}, 150, 'linear')
 }
 
 function moveYAnimation(i,j,k,j){
 	$('.container .frontBlockGroup .frontBlock-' + i + '-' + j)
 	.animate({
-		'top': getPositionY(k,j) + 50,
-		'left': getPositionX(k,j) + 50
+		'top': getPositionY(k,j) + 0.6 + 'rem',
+		'left': getPositionX(k,j) + 0.6 + 'rem'
 	}, 150, 'linear')
 }

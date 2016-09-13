@@ -5,11 +5,19 @@ var gridMoved = new Array();	//记录方格是否移动过一次了，如果移�
 
 
 $(function(){
+
+	// 设置根元素font-size,rem布局实现移动端响应式
+	function changeFontsize(){
+		var deviceWidth = $(window).width()>1200 ? 1200 : $(window).width();
+		$("html").css("font-size",deviceWidth/7.5 + "px");
+	}
+	changeFontsize();
+	$(window).resize(changeFontsize);
+
 	// 界面初始化
 	init();
 	newBlock();
 	newBlock();
-
 
 	// 开始游戏按钮
 	$('.header .newGame').bind('click',function(){
@@ -59,8 +67,8 @@ function init(){
 	var index = 0;
 	for(i=0; i<4; i++){
 		for(j=0; j<4; j++){
-			backGrid[index].style.top = getPositionY(i,j) + 'px';
-			backGrid[index].style.left = getPositionX(i,j) + 'px';
+			backGrid[index].style.top = getPositionY(i,j) + 'rem';
+			backGrid[index].style.left = getPositionX(i,j) + 'rem';
 			index++;
 		}
 	}
@@ -99,8 +107,8 @@ function updateFrontBlock(){
 			var $thisBlock = $frontBlockGroup.find(".frontBlock-" + i + "-" + j);
 			if(grid[i][j]==0){
 				$thisBlock.css({
-					'top': getPositionY(i,j)+50,
-					'left': getPositionX(i,j)+50,
+					'top': getPositionY(i,j) + 0.6 + 'rem',
+					'left': getPositionX(i,j) + 0.6 + 'rem',
 					'width': 0,
 					'height': 0
 				});
@@ -108,8 +116,8 @@ function updateFrontBlock(){
 				$thisBlock.css({
 					'width': 100,
 					'height': 100,
-					'top': getPositionY(i,j)+50,
-					'left': getPositionX(i,j)+50,
+					'top': getPositionY(i,j) + 0.6 + 'rem',
+					'left': getPositionX(i,j) + 0.6 + 'rem',
 					'backgroundColor': getBGColor(grid[i][j]),
 					'color': getColor(grid[i][j])
 				});
