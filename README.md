@@ -15,4 +15,7 @@
 
 ![二维码](http://oamfqhi9c.bkt.clouddn.com/blog_201608_ucaiChallenge.png)
 
-#### 7.[加载动画](https://htmlpreview.github.io/?https://github.com/Koreyhan/someProjects/blob/master/006.ucaiChallenge/index.html)
+#### 7.[CSS3加载动画](https://htmlpreview.github.io/?https://github.com/Koreyhan/someProjects/blob/master/007.loadingAnimation/index.html)
+制作了几个CSS3的加载动画效果，由于需要使用大量的<code>keyframes</code>和<code>animation</code>，所以采用了Sass、Compass的写法，使得CSS写起来更轻松省力。
+#### 8.[2048游戏](https://htmlpreview.github.io/?https://github.com/Koreyhan/someProjects/blob/master/008.game2048/index.html)
+使用面向过程的方法制作了一个2048的小游戏，可以通过上下左右键或者滑动控制色块的移动。
