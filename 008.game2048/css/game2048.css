@@ -21,55 +21,62 @@ a:hover,a:active,a:focus{ text-decoration:none;} /* 取消a标签点击后的虚
 -----------------------*/
 /* header */
 .header {
-	width: 6rem;
+	width: 6.6rem;
 	margin: 0 auto;
 }
 .header .title,
 .header .newGame,
 .header .score {
 	float: left;
-	height: 1rem;
-	margin: 0.5rem auto 0.15rem;
+	height: 1.2rem;
+	margin: 0.5rem auto 0.3rem;
 	-webkit-border-radius: 10px;
 	-moz-border-radius: 10px;
 	border-radius: 10px;
 	text-align: center;
 	color: #fff;
-	line-height: 1rem;
+	line-height: 1.2rem;
 	
 }
 .header .title {
-	width: 2.2rem;
+	width: 2.5rem;
 	background-color: #01abce;
 	font-size: 40px;
 	font-weight: 800;
 }
 .header .newGame {
-	width: 1.8rem;
-	margin: 0.5rem 0.25rem 0.15rem;
+	width: 2rem;
+	margin-left: 0.25rem;
+	margin-right: 0.25rem;
 	background-color: #fc8c5e;
-	font-size: 20px;
+	font-size: 16px;
 	font-weight: 800;
 }
 .header .score {
-	height: 0.8rem;
-	padding-top: 0.2rem;
+	height: 1.2rem;
 	width: 1.5rem;
 	background-color: #d3d3d3;
 	font-size: 16px;
-	font-weight: 200;
-	line-height: 0.3rem;
+	line-height: 24px;
+	position: relative;
+}
+.header .scoreContainer {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	-webkit-transform: translate(-50%,-50%);
+	-moz-transform: translate(-50%,-50%);
+	transform: translate(-50%,-50%);
 }
 .header .score .scoreNum {
-	font-size: 22px;
-	font-weight: 800;
+	font-size: 20px;
 }
 
 /* 2048main */
 .container {
 	position: relative;
-	width: 6rem;
-	height: 6rem;
+	width: 6.6rem;
+	height: 6.6rem;
 	margin: 0 auto;
 	background-color: #bfbfbf;
 	-webkit-border-radius: 15px;
@@ -78,8 +85,8 @@ a:hover,a:active,a:focus{ text-decoration:none;} /* 取消a标签点击后的虚
 }
 .container .backGrid {
 	position: absolute;
-	width: 1.2rem;
-	height: 1.2rem;
+	width: 1.4rem;
+	height: 1.4rem;
 	background-color: #d3d3d3;
 	-webkit-border-radius: 10px;
 	-moz-border-radius: 10px;
@@ -87,14 +94,39 @@ a:hover,a:active,a:focus{ text-decoration:none;} /* 取消a标签点击后的虚
 }
 .container .frontBlock {
 	position: absolute;
-	width: 1.2rem;
-	height: 1.2rem;
+	width: 1.4rem;
+	height: 1.4rem;
 	-webkit-border-radius: 10px;
 	-moz-border-radius: 10px;
 	border-radius: 10px;
 	font-size: 56px;
-	line-height: 1.2rem;
+	line-height: 1.4rem;
 	text-align: center;
 	font-weight: bold;
+	-webkit-transform: translate(-50%,-50%);
+	-moz-transform: translate(-50%,-50%);
 	transform: translate(-50%,-50%);
+}
+
+@media screen and (max-width: 500px) {
+	/* header */
+	.header .title {
+		font-size: 30px;
+	}
+	.header .newGame {
+		font-size: 14px;
+	}
+	.header .score {
+		font-size: 14px;
+		line-height: 20px;
+
+	}
+	.header .score .scoreNum {
+		font-size: 16px;
+	}
+
+	/* 2048main */
+	.container .frontBlock {
+		font-size: 38px;
+	}
 }

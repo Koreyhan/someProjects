@@ -8,7 +8,7 @@ $(function(){
 
 	// 设置根元素font-size,rem布局实现移动端响应式
 	function changeFontsize(){
-		var deviceWidth = $(window).width()>1200 ? 1200 : $(window).width();
+		var deviceWidth = $(window).width()>500 ? 500 : $(window).width();
 		$("html").css("font-size",deviceWidth/7.5 + "px");
 	}
 	changeFontsize();
@@ -107,17 +107,17 @@ function updateFrontBlock(){
 			var $thisBlock = $frontBlockGroup.find(".frontBlock-" + i + "-" + j);
 			if(grid[i][j]==0){
 				$thisBlock.css({
-					'top': getPositionY(i,j) + 0.6 + 'rem',
-					'left': getPositionX(i,j) + 0.6 + 'rem',
+					'top': getPositionY(i,j) + 0.7 + 'rem',
+					'left': getPositionX(i,j) + 0.7 + 'rem',
 					'width': 0,
 					'height': 0
 				});
 			}else{
 				$thisBlock.css({
-					'width': 100,
-					'height': 100,
-					'top': getPositionY(i,j) + 0.6 + 'rem',
-					'left': getPositionX(i,j) + 0.6 + 'rem',
+					'width': '1.4rem',
+					'height': '1.4rem',
+					'top': getPositionY(i,j) + 0.7 + 'rem',
+					'left': getPositionX(i,j) + 0.7 + 'rem',
 					'backgroundColor': getBGColor(grid[i][j]),
 					'color': getColor(grid[i][j])
 				});
