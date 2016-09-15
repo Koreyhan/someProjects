@@ -2,6 +2,10 @@
 var grid = new Array();  //4x4数组储存每个方块的当前分值
 var score = 0;  //总得分
 var gridMoved = new Array();	//记录方格是否移动过一次了，如果移动了，不能重复叠加
+var touchstartX,
+	touchstartY,
+	touchendX,
+	touchendY = 0;		//移动端滑动位置数据
 
 
 $(function(){
@@ -37,15 +41,39 @@ $(function(){
 		}
 		
 	});
+	// 添加移动设备滑动事件
+	document.addEventListener('touchstart',function(event){
+		touchstartX = event.touches[0].pageX;
+		touchstartY = event.touches[0].pageY;
+	}); 
+	document.addEventListener('touchend',function(event){
+		touchendX = event.changedTouches[0].pageX;
+		touchendY = event.changedTouches[0].pageY;
 
-	$("body").swipe( {
-        //Generic swipe handler for all directions
-        swipe:function(event, direction, distance, duration, fingerCount, fingerData) {
-          console.log("You swiped " + direction );  
-        },
-        //Default is 75px, set to 0 for demo so any distance triggers swipe
-         threshold:0
-	});
+		var touchmoveX = touchstartX - touchendX;
+		var touchmoveY = touchstartY - touchendY;
+		if( Math.abs(touchmoveX)>50 || Math.abs(touchmoveY)>50 ){
+			if(Math.abs(touchmoveX) > Math.abs(touchmoveY)){
+				// 水平滑动
+				if(touchmoveX>0){
+					// 向左滑动
+					moveLeft();
+				} else {
+					// 向右滑动
+					moveRight();
+				}
+			} else {
+				// 垂直移动
+				if(touchmoveY>0){
+					// 向上滑动
+					moveUp();
+				} else {
+					// 向下滑动
+					moveDown();
+				}
+			}
+		}
+	});  
 });
 
 

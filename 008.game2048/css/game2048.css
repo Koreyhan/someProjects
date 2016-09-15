@@ -127,6 +127,6 @@ a:hover,a:active,a:focus{ text-decoration:none;} /* 取消a标签点击后的虚
 
 	/* 2048main */
 	.container .frontBlock {
-		font-size: 38px;
+		font-size: 34px;
 	}
 }
