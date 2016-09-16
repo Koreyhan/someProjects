@@ -43,10 +43,12 @@ $(function(){
 	});
 	// 添加移动设备滑动事件
 	document.addEventListener('touchstart',function(event){
+		event.preventDefault();
 		touchstartX = event.touches[0].pageX;
 		touchstartY = event.touches[0].pageY;
 	}); 
 	document.addEventListener('touchend',function(event){
+		event.preventDefault();
 		touchendX = event.changedTouches[0].pageX;
 		touchendY = event.changedTouches[0].pageY;
 
