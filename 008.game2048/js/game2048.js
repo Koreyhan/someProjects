@@ -82,7 +82,7 @@ $(function(){
 	document.addEventListener('touchmove', function(event) {
 		event.preventDefault();
 	}, false);  
-	
+
 });
 
 
@@ -117,8 +117,8 @@ function init(){
 // 创建一个新的数字块
 function newBlock(){
 	if(hasEmptyBlock()){
-		var count = 0;	//记录循环查找的次数，如果20次内找不到空位置，则换另一个方法
-		while(count<200000){
+		// var count = 0;	//记录循环查找的次数，如果20次内找不到空位置，则换另一个方法
+		while(true){
 			var randomI = random(4);
 			var randomJ = random(4);
 			if(grid[randomI][randomJ] == 0){
@@ -126,9 +126,8 @@ function newBlock(){
 				newBlockShow(randomI,randomJ);
 				break;
 			}
-			count++;
-		}		
-		// console.log('randomconcunt='+count);
+			// count++;
+		}
 	}
 }
 
