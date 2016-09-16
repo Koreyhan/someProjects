@@ -14,6 +14,7 @@ $(function(){
 	function changeFontsize(){
 		var deviceWidth = $(window).width()>500 ? 500 : $(window).width();
 		$("html").css("font-size",deviceWidth/7.5 + "px");
+		$('body').css('height',$(window).height());
 	}
 	changeFontsize();
 	$(window).resize(changeFontsize);
@@ -77,9 +78,11 @@ $(function(){
 		}
 	}); 
 
+	// 阻止iOS设备的橡皮筋滚动效果
 	document.addEventListener('touchmove', function(event) {
 		event.preventDefault();
 	}, false);  
+	
 });
 
 
