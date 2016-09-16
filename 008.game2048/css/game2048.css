@@ -110,6 +110,9 @@ a:hover,a:active,a:focus{ text-decoration:none;} /* 取消a标签点击后的虚
 
 @media screen and (max-width: 500px) {
 	/* header */
+	.header {
+		margin: 1rem auto;
+	}
 	.header .title {
 		font-size: 30px;
 	}
