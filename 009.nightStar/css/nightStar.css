@@ -1,0 +1,50 @@
+/* --------------------
+	css reset
+-----------------------*/
+/* 初始化标签在所有浏览器中的margin、padding值 */
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,textarea,p,blockquote,th,td,input,select,textarea,button,img{padding: 0; margin: 0;}
+/* 酌情修改 */
+body{background:#fff;font-family: "Helvetica Neue", Helvetica, Arial, "PingFang SC", "Hiragino Sans GB", "Heiti SC", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+}
+body,th,td,input,select,textarea,button{font-size:14px;line-height:1.2 ;} /* 重置页面文字属性 */
+
+
+del,ins,a{text-decoration:none;}
+a:hover,a:active,a:focus{ text-decoration:none;} /* 取消a标签点击后的虚线框 */
+
+.clearfix {zoom:1}
+.clearfix:after {content: '\20'; display: block; clear: both;}
+
+
+/* --------------------
+	main css
+-----------------------*/
+body {
+  background: linear-gradient(to bottom, #002131 0%, #19629e 60%);
+  height: 100vh;
+}
+
+#stars {
+  top: 0;
+  position: absolute;
+  width: 100vw;
+  height: 70vh;
+}
+
+#dunes {
+  top: 0;
+  position: absolute;
+  background: url("../imgs/dunes.png");
+  background-size: 100% 100%;
+  width: 100vw;
+  height: 100vh;
+}
+
+h1 {
+  font-size: 4em;
+  font-weight: 200;
+  text-align: center;
+  color: #fff;
+  text-shadow: 1px 1px 20px hsla(0,100%,100%,0.3);
+  padding-top: 10%;
+}
