@@ -7,19 +7,39 @@ var	connectRadius = 100;		// 常量、鼠标滑动星星连接区域的大小
 var mousePosX = 0, mousePosY = 0;	// 定义鼠标位置
 var connectArea = { minX:0, maxX:0, minY:0, maxY:0,};	// 定义鼠标影响区域
 var connectMaxDis = 70;	// 常量、连接线的最长值
-var intervalId;		// setInterval 的返回值
+var meteor = new Array();  	// 存放流星-数组
+var meteorTimeInt = 0;
+var timeout; 	// setTimeout 的控制器
+var intervalId;		// setInterval 的控制器
 
 window.onload = function() {
 	init();
 	drawAll();
-	console.log(stars);
 }
 
 window.onresize = function(){
 	init();
 	drawAll();
-	console.log(stars);
 }
+
+// 跟踪鼠标位置及影响区域
+document.body.addEventListener('mousemove', function(e) {
+	mousePosX = e.clientX || e.touches && e.touches[0].pageX - ctx.left;
+	mousePosY = e.clientY || e.touches && e.touches[0].pageY - ctx.top;
+	if(mousePosX>0 && mousePosX<(cxtRight - 10) && mousePosY>0 && mousePosY<(cxtBottom - 10)){
+		connectArea.minX = mousePosX - connectRadius;
+		connectArea.maxX = mousePosX + connectRadius;
+		connectArea.minY = mousePosY - connectRadius;
+		connectArea.maxY = mousePosY + connectRadius;
+	};
+})
+
+document.body.addEventListener('mouseout', function(e) {
+	connectArea.minX = 0;
+	connectArea.maxX = 0;
+	connectArea.minY = 0;
+	connectArea.maxY = 0;
+})
 
 // 初始化
 function init(){
@@ -47,9 +67,11 @@ function init(){
 		stars.push(new NEWSTAR());
 	}
 
-	setTimeout(function(){
-		drawLine(connectStars());
-	},1000)
+	// 初始化流星数组
+	meteor = new Array();
+	meteorTimeInt = 0;
+	clearTimeout(timeout);
+	addMeteors();
 }
 
 // 制作单个星星对象的构造函数
@@ -58,7 +80,7 @@ function NEWSTAR(){
 	this.y = Math.random() * cxtBottom;      // 星星垂直的位置
 	this.vx = (Math.random() * 0.3 + 0.3) * (Math.random()>0.5 ? 1 : -1);		 // 星星水平的速度
 	this.vy = (Math.random() * 0.3 + 0.3) * (Math.random()>0.5 ? 1 : -1);		 // 星星垂直的速度
-	this.radius = Math.random() * 1.5;		 // 星星的半径:0-2
+	this.radius = Math.random() * 1.5;		 // 星星的半径:0-1.5
 }
 NEWSTAR.prototype.move = function() {        // 星星移动的方法
 	this.x += this.vx;
@@ -71,6 +93,22 @@ NEWSTAR.prototype.move = function() {        // 星星移动的方法
 	}
 };
 
+// 制作单个流星对象的构造函数
+function NEWMETEOR(){
+	this.x = Math.random() * cxtRight + cxtRight/3;   	 // 流星水平的位置,整体向右偏移1/3画布
+	this.y = Math.random() * cxtBottom - cxtBottom/2;      // 流星垂直的位置,整体向上偏移1/2画布
+	this.length = Math.random() * 100 + 100;		// 流星的长度
+	this.vx = 0 - (Math.random()*3 + 7);		 // 流星水平的速度,7-10
+	this.vy = -this.vx;		 // 流星垂直的速度,7-10
+	this.radius = Math.random() * 1;		 // 流星的半径:0-1
+	this.time = Math.random() * 1 + Math.ceil((cxtBottom-this.y)/this.vy);		// 流星经过的总时间(次数)
+}
+NEWMETEOR.prototype.move = function(){
+	this.x += this.vx;
+	this.y += this.vy;
+	this.time -= 1;
+}
+
 // 绘制单个星星
 function drawStar(){
 	ctx.fillStyle="#fff";
@@ -82,25 +120,6 @@ function drawStar(){
 		ctx.fill();
 	}
 }
-
-// 跟踪鼠标位置及影响区域
-document.body.addEventListener('mousemove', function(e) {
-	mousePosX = e.clientX || e.touches && e.touches[0].pageX - ctx.left;
-	mousePosY = e.clientY || e.touches && e.touches[0].pageY - ctx.top;
-	if(mousePosX>0 && mousePosX<(cxtRight - 10) && mousePosY>0 && mousePosY<(cxtBottom - 10)){
-		connectArea.minX = mousePosX - connectRadius;
-		connectArea.maxX = mousePosX + connectRadius;
-		connectArea.minY = mousePosY - connectRadius;
-		connectArea.maxY = mousePosY + connectRadius;
-	};
-})
-
-document.body.addEventListener('mouseout', function(e) {
-	connectArea.minX = 0;
-	connectArea.maxX = 0;
-	connectArea.minY = 0;
-	connectArea.maxY = 0;
-})
 
 // 确定需要连线的星星
 function connectStars(){
@@ -135,8 +154,55 @@ function drawLine(connectStar){
 	}
 }
 
-// 定时循环绘制星星和线条
+// 制作流星加入数组
+function addMeteors(){
+	timeout = setTimeout(function(){
+		// console.log(meteor.length);
+		meteor.push(new NEWMETEOR);
+		meteorTimeInt = Math.random()*3000;
+		addMeteors();
+	},meteorTimeInt)
+}
+
+// 绘制一个流星
+function drawOneMeteor(index){
+	var gra = ctx.createRadialGradient(meteor[index].x, meteor[index].y, 0, meteor[index].x, meteor[index].y, meteor[index].length);
+    gra.addColorStop(0, 'rgba(255,255,255,1)');
+    gra.addColorStop(1, 'rgba(255,255,255,0)');
+    ctx.save();
+    ctx.fillStyle = gra;
+    ctx.beginPath();
+    //流星头，二分之一圆
+    ctx.arc(meteor[index].x, meteor[index].y, meteor[index].radius, Math.PI / 4, 5 * Math.PI / 4);
+    //绘制流星尾，三角形
+    ctx.lineTo(meteor[index].x + meteor[index].length, meteor[index].y - meteor[index].length);
+    ctx.closePath();
+    ctx.fill();
+    ctx.restore();
+}
+
+// 绘制数组中的流星
+function drawMeteors(){	
+	var abolishMeteors = new Array();
+	for(var i=0,num=meteor.length; i<num; i++){
+		if(meteor[i].time>0){
+			if((meteor[i].y - meteor[i].length)<cxtBottom){
+				drawOneMeteor(i);
+			}
+			meteor[i].move();
+		}else{
+			abolishMeteors.push(i);
+		}
+	}
+	for(var j=abolishMeteors.length-1; j>=0; j--){
+		meteor.remove(j);
+	}
+}
+
+// 定时循环绘制星星、流星、线条
 function drawAll(){
+	meteor[0] = new NEWMETEOR;
+	// console.log(meteor);
 	clearInterval(intervalId);
 	intervalId = setInterval(function(){
 		ctx.clearRect(cxtLeft,cxtTop,cxtRight,cxtBottom);
@@ -145,5 +211,21 @@ function drawAll(){
 			stars[i].move();
 		}
 		drawLine(connectStars());
+
+		drawMeteors();
 	},50)
 }
+
+// 删除数组元素中序号为dx的值
+Array.prototype.remove=function(dx) 
+{ 
+    if(isNaN(dx)||dx>this.length){return false;} 
+    for(var i=0,n=0;i<this.length;i++) 
+    { 
+        if(this[i]!=this[dx]) 
+        { 
+            this[n++]=this[i] 
+        } 
+    } 
+    this.length-=1 
+} 
