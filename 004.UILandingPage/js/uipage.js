@@ -67,8 +67,7 @@ window.onload=function(){
 				}
 			})
 			var $sectionAs = $("nav .menu a")
-			var $sectionA = $("nav .menu a[href=#" + sectionClassName +"]");
-			console.log($sectionA.text());
+			var $sectionA = $("nav .menu a[data-myid=" + sectionClassName +"]");
 			if($sectionA.text()!=""){
 				$sectionAs.removeClass("active");
 				$sectionA.addClass("active");
