@@ -49,12 +49,13 @@ window.onload=function(){
 	$(window).scroll(function(){
 		var windowTop = $(window).scrollTop();
 		// 显示隐藏导航
-		if(windowTop>$('.section1').height()){
-
-			$("nav").addClass("fixed");
+		if(windowTop>$('.section1').height() && !$("nav .wrap").hasClass("fixed")){
+			$("nav .wrap").hide();
+			$("nav .wrap").addClass("fixed");
+			$("nav .wrap").slideDown(500);
 		}
-		if(windowTop<$('.section1').height()){
-			$("nav").removeClass("fixed");
+		if(windowTop<=0 && $("nav .wrap").hasClass("fixed")){
+			$("nav .wrap").removeClass("fixed");
 		}
 		// 导航跟随滚动而改变选中导航
 		(function(){
@@ -66,11 +67,13 @@ window.onload=function(){
 					sectionClassName=$(this).attr("class");
 				}
 			})
-			var $sectionAs = $("nav .menu a")
-			var $sectionA = $("nav .menu a[data-myid=" + sectionClassName +"]");
-			if($sectionA.text()!=""){
-				$sectionAs.removeClass("active");
-				$sectionA.addClass("active");
+			if(sectionClassName!=""){
+				var $sectionAs = $("nav .menu a")
+				var $sectionA = $("nav .menu a[data-myid=" + sectionClassName +"]");
+				if($sectionA.text()!=""){
+					$sectionAs.removeClass("active");
+					$sectionA.addClass("active");
+				}
 			}
 		})();
 

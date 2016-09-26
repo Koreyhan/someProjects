@@ -25,8 +25,8 @@ input {
 	background: url(../imgs/section1_bg.jpg) no-repeat center center;
 	background-size: cover;
 }
-nav.fixed {
-	position: fixed;
+nav .wrap.fixed {
+	position: fixed !important;
 	left: 0;
 	right: 0;
 	z-index: 2;
