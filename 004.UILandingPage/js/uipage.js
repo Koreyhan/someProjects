@@ -61,12 +61,14 @@ window.onload=function(){
 
 			var $sections = $("section")
 			var sectionClassName = "";
+			console.group(111);
 			$sections.each(function(){
-				console.log(111);
 				if(windowTop>$(this).offset().top){
+					console.log(111);
 					sectionClassName=$(this).attr("class");
 				}
 			})
+			console.groupEnd();
 			var $sectionAs = $("nav .menu a")
 			var $sectionA = $("nav .menu a[href=#" + sectionClassName +"]");
 			if($sectionA.text()!=""){
