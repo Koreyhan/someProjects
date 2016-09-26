@@ -207,7 +207,7 @@ function drawAll(){
 	// console.log(meteor);
 	clearInterval(intervalId);
 	intervalId = setInterval(function(){
-		ctx.clearRect(cxtLeft,cxtTop,cxtRight,cxtBottom);
+		ctx.clearRect(cxtLeft,cxtTop,cxtRight+10,cxtBottom+10);
 		drawStar(stars,ctx);
 		for(var i=0; i<count; i++){
 			stars[i].move();
