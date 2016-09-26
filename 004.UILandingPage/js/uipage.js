@@ -64,8 +64,8 @@ window.onload=function(){
 			console.group(111);
 			$sections.each(function(){
 				if(windowTop>$(this).offset().top){
-					console.log(111);
 					sectionClassName=$(this).attr("class");
+					console.log(sectionClassName);
 				}
 			})
 			console.groupEnd();
