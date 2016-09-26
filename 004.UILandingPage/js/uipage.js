@@ -58,9 +58,11 @@ window.onload=function(){
 		}
 		// 导航跟随滚动而改变选中导航
 		(function(){
+
 			var $sections = $("section")
 			var sectionClassName = "";
 			$sections.each(function(){
+				console.log(111);
 				if(windowTop>$(this).offset().top){
 					sectionClassName=$(this).attr("class");
 				}
