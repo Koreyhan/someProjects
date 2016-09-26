@@ -51,12 +51,7 @@ document.body.addEventListener('mouseout', function(e) {
 	connectArea.minY = 0;
 	connectArea.maxY = 0;
 })
-document.body.addEventListener('touchend', function(e) {
-	connectArea.minX = 0;
-	connectArea.maxX = 0;
-	connectArea.minY = 0;
-	connectArea.maxY = 0;
-})
+
 
 // 初始化
 function init(){
