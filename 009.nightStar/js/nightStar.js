@@ -33,16 +33,6 @@ document.body.addEventListener('mousemove', function(e) {
 		connectArea.maxY = mousePosY + connectRadius;
 	};
 })
-document.body.addEventListener('touchmove', function(e) {
-	mousePosX = e.clientX || e.touches && e.touches[0].pageX - ctx.left;
-	mousePosY = e.clientY || e.touches && e.touches[0].pageY - ctx.top;
-	if(mousePosX>0 && mousePosX<(cxtRight - 10) && mousePosY>0 && mousePosY<(cxtBottom - 10)){
-		connectArea.minX = mousePosX - connectRadius;
-		connectArea.maxX = mousePosX + connectRadius;
-		connectArea.minY = mousePosY - connectRadius;
-		connectArea.maxY = mousePosY + connectRadius;
-	};
-})
 
 // 鼠标移除时清楚影响
 document.body.addEventListener('mouseout', function(e) {
