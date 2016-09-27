@@ -59,12 +59,12 @@ body {
 	color: #b5b5b5;
 }
 .start a{
-	transition:all 0.2s linear;
-	display: block;
-	width: 130px;
-	height: 36px;
+	transition:all 0.2s ease-out;
+	display: inline-block;
+	width: 140px;
+	height: 38px;
 	margin: 0 auto;
-	line-height: 36px;
+	line-height: 38px;
 	font-size: 16px;
 	color: #ecf0f1;
 	font-weight: bold;
@@ -73,12 +73,24 @@ body {
 	background: -moz-linear-gradient(#e95547,#df392e); /* Firefox 3.6 - 15 */
 	background: linear-gradient(#e95547,#df392e); /* 标准的语法 */
 	
-	-moz-border-radius: 18px; 
-	border-radius: 18px; 
+	-moz-border-radius: 19px; 
+	border-radius: 19px; 
 }
 
 .start a:hover {
 	text-decoration: none;
-	-moz-box-shadow: 0 15px 30px rgba(0,0,0,0.1);
-	box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+	-moz-box-shadow: 0 10px 30px rgba(244, 71, 57, 0.3);
+	 	 box-shadow: 0 10px 30px rgba(244, 71, 57, 0.3);
+	-webkit-filter: brightness(1.05) contrast(1.05);
+	        filter: brightness(1.05) contrast(1.05);
+	-webkit-transform: scale(1.04);
+	        transform: scale(1.04);
+}
+.start a:active {
+	-moz-box-shadow: none;
+		 box-shadow: none;
+	-webkit-filter: brightness(1) contrast(1);
+			filter: brightness(1) contrast(1);
+	-webkit-transform: scale(1);
+			transform: scale(1);
 }
