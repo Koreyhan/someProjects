@@ -44,22 +44,24 @@ $(function(){
 })
 
 window.onload=function(){
-	var img1Top = $('.section1 .banner img').offset().top;
-	var img2Top = $('.section8 img').offset().top;
+	
 	$(window).scroll(function(){
 		var windowTop = $(window).scrollTop();
+
 		// 显示隐藏导航
-		if(windowTop>$('.section1').height() && !$("nav .wrap").hasClass("fixed")){
-			$("nav .wrap").hide();
-			$("nav .wrap").addClass("fixed");
-			$("nav .wrap").slideDown(500);
-		}
-		if(windowTop<=0 && $("nav .wrap").hasClass("fixed")){
-			$("nav .wrap").removeClass("fixed");
-		}
+		(function(){
+			if(windowTop>$('.section1').height() && !$("nav .wrap").hasClass("fixed")){
+				$("nav .wrap").hide();
+				$("nav .wrap").addClass("fixed");
+				$("nav .wrap").slideDown(500);
+			}
+			if(windowTop<=0 && $("nav .wrap").hasClass("fixed")){
+				$("nav .wrap").removeClass("fixed");
+			}
+		})();
+
 		// 导航跟随滚动而改变选中导航
 		(function(){
-
 			var $sections = $("section")
 			var sectionClassName = "";
 			$sections.each(function(){
@@ -78,12 +80,22 @@ window.onload=function(){
 		})();
 
 		// 两张大图片的视察滚动效果，需等图片加载完成计算的高度才正确
-		if(img1Top-140 <= windowTop && windowTop <= img1Top + 500 ) {
-			$('.section1 .banner img').css('marginTop',70-windowTop/2);
-		}
-		var windowTop = $(window).scrollTop();
-		if(img2Top-250 <= windowTop && windowTop <= img2Top + 350 ) {
-			$('.section8 img').css('marginTop',30-(windowTop-img2Top+250)/4);
-		}
+		(function(){
+			var img1Top = $('.section1 .banner img').offset().top;
+			var img2Top = $('.section8 img').offset().top;
+			if(img1Top-140 <= windowTop && windowTop <= img1Top + 500 ) {
+				$('.section1 .banner img').css('marginTop',70-windowTop/2);
+			}
+			if(img2Top-250 <= windowTop && windowTop <= img2Top + 350 ) {
+				$('.section8 img').css('marginTop',30-(windowTop-img2Top+250)/4);
+			}
+		})();
+	});
+
+	$("nav .menu a").bind("click",function(){
+		$('body').animate({
+			scrollTop: $("#" + $(this).data("myid")).offset().top
+		}, 800);
+		return false;
 	})
 }
