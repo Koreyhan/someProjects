@@ -415,3 +415,56 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   -webkit-animation: loading2_outside_animate 5s ease-in infinite;
   animation: loading2_outside_animate 5s ease-in infinite;
 }
+
+/* line 141, ../sass/loadingAnimation.scss */
+.loading3 {
+  background: #774CFF;
+  position: relative;
+}
+/* line 144, ../sass/loadingAnimation.scss */
+.loading3 .circle {
+  margin: 0 auto;
+  width: 30px;
+  height: 30px;
+  border: 7px solid #fff;
+  border-left-color: transparent;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  -moz-animation: loading3_circle 0.7s linear infinite;
+  -webkit-animation: loading3_circle 0.7s linear infinite;
+  animation: loading3_circle 0.7s linear infinite;
+}
+@-moz-keyframes loading3_circle {
+  0% {
+    transform: rotate(0) scale(1);
+  }
+  50% {
+    transform: rotate(180deg) scale(1.3);
+  }
+  100% {
+    transform: rotate(360deg) scale(1);
+  }
+}
+@-webkit-keyframes loading3_circle {
+  0% {
+    transform: rotate(0) scale(1);
+  }
+  50% {
+    transform: rotate(180deg) scale(1.3);
+  }
+  100% {
+    transform: rotate(360deg) scale(1);
+  }
+}
+@keyframes loading3_circle {
+  0% {
+    transform: rotate(0) scale(1);
+  }
+  50% {
+    transform: rotate(180deg) scale(1.3);
+  }
+  100% {
+    transform: rotate(360deg) scale(1);
+  }
+}
